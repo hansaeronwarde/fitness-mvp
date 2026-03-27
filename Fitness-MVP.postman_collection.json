@@ -1,0 +1,118 @@
+{
+  "info": {
+    "name": "Fitness Member Management Mini-MVP",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000/api"
+    }
+  ],
+  "item": [
+    {
+      "name": "Members",
+      "item": [
+        {
+          "name": "Create Member",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": "{{baseUrl}}/members",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Jane Doe\",\n  \"email\": \"jane@example.com\"\n}"
+            }
+          }
+        },
+        {
+          "name": "List Members",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/members"
+          }
+        },
+        {
+          "name": "Search Members",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/members?q=jane"
+          }
+        },
+        {
+          "name": "Get Member Summary",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/members/{{memberId}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Plans",
+      "item": [
+        {
+          "name": "List Plans",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/plans"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Memberships",
+      "item": [
+        {
+          "name": "Assign Membership",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": "{{baseUrl}}/memberships",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"memberId\": \"{{memberId}}\",\n  \"planId\": \"{{planId}}\",\n  \"startDate\": \"2026-03-01\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Cancel Membership",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": "{{baseUrl}}/memberships/{{membershipId}}/cancel",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"endDate\": \"2026-03-27\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Check-ins",
+      "item": [
+        {
+          "name": "Create Check-in",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": "{{baseUrl}}/checkins",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"memberId\": \"{{memberId}}\"\n}"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
