@@ -1,7 +1,5 @@
 # Fitness Member Management Mini‑MVP
 
-Thanks for reviewing this take‑home. I kept the setup simple and explicit, so you can run it locally without guesswork.
-
 ## Prerequisites
 
 - Node.js 20+
